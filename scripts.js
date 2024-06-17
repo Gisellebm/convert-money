@@ -1,5 +1,6 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.querySelector(".currency-select");
+const currencySelectMain = document.querySelector(".currency-select-main");
 
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value;
@@ -43,6 +44,26 @@ function convertValues() {
     
 }
 
+function changeCurrencyMain() {
+    const currencyNameMain = document.getElementById("currencyNameMain");
+    const currencyImageMain = document.querySelector(".currency-img");
+
+    if(currencySelectMain.value === "dolar") {
+        currencyNameMain.innerHTML = "Dólar americano";
+        currencyImageMain.src = "./assets/dollar.png";
+    } else if(currencySelectMain.value === "euro") {
+        currencyImageMain.src = "./assets/euro.png";
+        currencyNameMain.innerHTML = "Euro";
+    } else if(currencySelectMain.value === "libra") {
+        currencyNameMain.innerHTML = "Libra";
+        currencyImageMain.src = "./assets/libra.png";
+    } else if(currencySelectMain.value === "bitcoin") {
+        currencyNameMain.innerHTML = "Bitcoin";
+        currencyImageMain.src = "./assets/bitcoin.png";
+    }
+
+    //convertValues()
+}
 
 function changeCurrency() {
     const currencyName = document.getElementById("currencyName");
@@ -65,6 +86,6 @@ function changeCurrency() {
     convertValues()
 }
 
-
+currencySelectMain.addEventListener("change", changeCurrencyMain)
 currencySelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertValues)
